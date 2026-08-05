@@ -136,13 +136,13 @@ const RESUME_MS = 10000;
     [],
   );
 
-  const jump = useCallback(
-    (i: number) => {
-      nudge();
-      setSlide(i);
-    },
-    [],
-  );
+  // const jump = useCallback(
+  //   (i: number) => {
+  //     nudge();
+  //     setSlide(i);
+  //   },
+  //   [],
+  // );
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
