@@ -113,7 +113,7 @@ function Tribute() {
       nudge();
       setSlide((s) => Math.min(TOTAL - 1, Math.max(0, s + n)));
     },
-    [nudge],
+    [],
   );
 
   const jump = useCallback(
@@ -121,7 +121,7 @@ function Tribute() {
       nudge();
       setSlide(i);
     },
-    [nudge],
+    [],
   );
 
   useEffect(() => {
