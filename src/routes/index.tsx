@@ -33,9 +33,9 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "An interactive birthday tribute for samri: a gift box to unwrap, fireworks, memories, polaroids and a closing chapter dated August 11, 2026.",
+          "An interactive birthday tribute for arsema: a gift box to unwrap, fireworks, memories, polaroids and a closing chapter dated August 11, 2026.",
       },
-      { property: "og:title", content: "Happy Birthday samri — A Tribute from kirubel" },
+      { property: "og:title", content: "Happy Birthday arsema — A Tribute from yismualem" },
       {
         property: "og:description",
         content: "Unwrap the gift, read the wishes and wander through our memories.",
