@@ -1,5 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useCallback, useEffect, useState } from "react";
+import { AudioButton } from "@/components/tribute/AudioButton";
+import { useAmbientMusic } from "@/components/tribute/useAmbientMusic";
 import {
   ArrowRight,
   BookOpen,
@@ -73,14 +75,60 @@ const FLOATING = [
 
 const TOTAL = 9;
 
+const AUTO_MS = 5000;
+const RESUME_MS = 10000;
+
+
 function Tribute() {
   const [slide, setSlide] = useState(0);
   const [gallery, setGallery] = useState(false);
   const [moment, setMoment] = useState(0);
+  //  const [hovering, setHovering] = useState(false);
+  // const [manualAt, setManualAt] = useState(0);
+  // const music = useAmbientMusic();
+    const [hovering, setHovering] = useState(false);
+  const [manualAt, setManualAt] = useState(0);
+  const music = useAmbientMusic();
 
-  const go = useCallback((n: number) => {
-    setSlide((s) => Math.min(TOTAL - 1, Math.max(0, s + n)));
-  }, []);
+  const nudge = useCallback(() => setManualAt(Date.now()), []);
+
+  const go = useCallback(
+    (n: number) => {
+      nudge();
+      setSlide((s) => Math.min(TOTAL - 1, Math.max(0, s + n)));
+    },
+    [nudge],
+  );
+
+  const nudge = useCallback(() => setManualAt(Date.now()), []);
+
+  // const go = useCallback((n: number) => {
+  //   setSlide((s) => Math.min(TOTAL - 1, Math.max(0, s + n)));
+  // }, []);
+
+   const go = useCallback(
+    (n: number) => {
+      nudge();
+      setSlide((s) => Math.min(TOTAL - 1, Math.max(0, s + n)));
+    },
+    [nudge],
+  );
+
+  // const jump = useCallback(
+  //   (i: number) => {
+  //     nudge();
+  //     setSlide(i);
+  //   },
+  //   [nudge],
+  // );
+  const jump = useCallback(
+    (i: number) => {
+      nudge();
+      setSlide(i);
+    },
+    [nudge],
+  );
+
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -91,11 +139,53 @@ function Tribute() {
     return () => window.removeEventListener("keydown", onKey);
   }, [go]);
 
+    // Start the music once the gift is opened (first user gesture).
+  // const open = useCallback(() => {
+  //   music.play();
+  //   setSlide(1);
+  // }, [music]);
+
+  // // Auto-advance every 5s, paused on slide 1, on hover, while the gallery
+  // // modal is open, and briefly after any manual navigation.
+  // useEffect(() => {
+  //   if (slide === 0 || slide >= TOTAL - 1 || hovering || gallery) return;
+  //   const sinceManual = Date.now() - manualAt;
+  //   const delay = sinceManual < RESUME_MS ? RESUME_MS - sinceManual : AUTO_MS;
+  //   const t = window.setTimeout(() => setSlide((s) => Math.min(TOTAL - 1, s + 1)), delay);
+  //   return () => window.clearTimeout(t);
+  // }, [slide, hovering, gallery, manualAt]);
+  // Start the music once the gift is opened (first user gesture).
+  const open = useCallback(() => {
+    music.play();
+    setSlide(1);
+  }, [music]);
+
+  // Auto-advance every 5s, paused on slide 1, on hover, while the gallery
+  // modal is open, and briefly after any manual navigation.
+  useEffect(() => {
+    if (slide === 0 || slide >= TOTAL - 1 || hovering || gallery) return;
+    const sinceManual = Date.now() - manualAt;
+    const delay = sinceManual < RESUME_MS ? RESUME_MS - sinceManual : AUTO_MS;
+    const t = window.setTimeout(() => setSlide((s) => Math.min(TOTAL - 1, s + 1)), delay);
+    return () => window.clearTimeout(t);
+  }, [slide, hovering, gallery, manualAt]);
+
+
+
   return (
-    <main className="relative min-h-screen overflow-hidden" data-slide={slide}>
+    // <main className="relative min-h-screen overflow-hidden" data-slide={slide}>
+    //    <main
+    //   className="relative min-h-screen overflow-hidden"
+    //   data-slide={slide}
+    //   onMouseEnter={undefined}
+    // >
+      <main className="relative min-h-screen overflow-hidden" data-slide={slide}>
+
       {slide > 0 && <BackgroundPhotos images={[memory1, memory2, memory3,memory4,memory5,memory6,memory7,memory8]} active={slide} />}
       <PolaroidField items={slide === 0 ? [] : FLOATING} />
       <Confetti />
+
+            <AudioButton playing={music.playing} onToggle={music.toggle} />
 
 
       {/* progress dots */}
@@ -109,7 +199,8 @@ function Tribute() {
             type="button"
             aria-label={`Go to slide ${i + 1}`}
             aria-current={i === slide}
-            onClick={() => setSlide(i)}
+            // onClick={() => setSlide(i)}
+              onClick={() => jump(i)}
             className={
               i === slide
                 ? "h-4 w-4 rounded-full border border-accent-pink bg-accent-pink shadow-[0_0_18px_var(--accent-pink)] transition-all"
@@ -143,10 +234,22 @@ function Tribute() {
 
       <section
         key={slide}
+        //  onMouseEnter={() => setHovering(true)}
+        // onMouseLeave={() => setHovering(false)}
+  onMouseOver={(e) =>
+          setHovering(
+            !!(e.target as HTMLElement).closest(".glass-card, .glass-chip, .polaroid, figure"),
+          )
+        }
+        onMouseOut={() => setHovering(false)}
+
+
         className="animate-rise relative z-20 grid min-h-screen place-items-center px-4 py-24 sm:px-16"
       >
-        {slide === 0 && <SlideGift onOpen={() => setSlide(1)} />}
-        {slide === 1 && <SlideWelcome onContinue={() => setSlide(2)} />}
+        {/* {slide === 0 && <SlideGift onOpen={() => setSlide(1)} />}
+        {slide === 1 && <SlideWelcome onContinue={() => setSlide(2)} />} */}
+         {slide === 0 && <SlideGift onOpen={open} />}
+        {slide === 1 && <SlideWelcome onContinue={() => jump(2)} />}
         {slide === 2 && <SlideWish />}
         {slide === 3 && (
           <GlassCard icon={<Heart className="h-5 w-5" />} title="What I love most about you">
