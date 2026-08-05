@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useCallback, useEffect, useState } from "react";
-import { AudioButton } from "@/components/tribute/AudioButton";
+// import { AudioButton } from "@/components/tribute/AudioButton";
 import { useAmbientMusic } from "@/components/tribute/useAmbientMusic";
 import {
   ArrowRight,
