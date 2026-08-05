@@ -48,7 +48,6 @@ import photo20 from "@/assets/photo_10_2026-08-05_22-42-32.jpg";
 import photo21 from "@/assets/photo_11_2026-08-05_22-41-37.jpg";
 import giftbox from "@/assets/images.jpg";
 
-
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
@@ -99,35 +98,17 @@ const TOTAL = 9;
 const AUTO_MS = 5000;
 const RESUME_MS = 10000;
 
-
 function Tribute() {
   const [slide, setSlide] = useState(0);
   const [gallery, setGallery] = useState(false);
   const [moment, setMoment] = useState(0);
-  //  const [hovering, setHovering] = useState(false);
-  // const [manualAt, setManualAt] = useState(0);
-  // const music = useAmbientMusic();
-    const [hovering, setHovering] = useState(false);
+  const [hovering, setHovering] = useState(false);
   const [manualAt, setManualAt] = useState(0);
   const music = useAmbientMusic();
 
-  // const nudge = useCallback(() => setManualAt(Date.now()), []);
-
-  // const go = useCallback(
-  //   (n: number) => {
-  //     nudge();
-  //     setSlide((s) => Math.min(TOTAL - 1, Math.max(0, s + n)));
-  //   },
-  //   [nudge],
-  // );
-
   const nudge = useCallback(() => setManualAt(Date.now()), []);
 
-  // const go = useCallback((n: number) => {
-  //   setSlide((s) => Math.min(TOTAL - 1, Math.max(0, s + n)));
-  // }, []);
-
-   const go = useCallback(
+  const go = useCallback(
     (n: number) => {
       nudge();
       setSlide((s) => Math.min(TOTAL - 1, Math.max(0, s + n)));
@@ -135,13 +116,6 @@ function Tribute() {
     [nudge],
   );
 
-  // const jump = useCallback(
-  //   (i: number) => {
-  //     nudge();
-  //     setSlide(i);
-  //   },
-  //   [nudge],
-  // );
   const jump = useCallback(
     (i: number) => {
       nudge();
@@ -149,7 +123,6 @@ function Tribute() {
     },
     [nudge],
   );
-
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -160,21 +133,6 @@ function Tribute() {
     return () => window.removeEventListener("keydown", onKey);
   }, [go]);
 
-    // Start the music once the gift is opened (first user gesture).
-  // const open = useCallback(() => {
-  //   music.play();
-  //   setSlide(1);
-  // }, [music]);
-
-  // // Auto-advance every 5s, paused on slide 1, on hover, while the gallery
-  // // modal is open, and briefly after any manual navigation.
-  // useEffect(() => {
-  //   if (slide === 0 || slide >= TOTAL - 1 || hovering || gallery) return;
-  //   const sinceManual = Date.now() - manualAt;
-  //   const delay = sinceManual < RESUME_MS ? RESUME_MS - sinceManual : AUTO_MS;
-  //   const t = window.setTimeout(() => setSlide((s) => Math.min(TOTAL - 1, s + 1)), delay);
-  //   return () => window.clearTimeout(t);
-  // }, [slide, hovering, gallery, manualAt]);
   // Start the music once the gift is opened (first user gesture).
   const open = useCallback(() => {
     music.play();
@@ -191,23 +149,13 @@ function Tribute() {
     return () => window.clearTimeout(t);
   }, [slide, hovering, gallery, manualAt]);
 
-
-
   return (
-    // <main className="relative min-h-screen overflow-hidden" data-slide={slide}>
-    //    <main
-    //   className="relative min-h-screen overflow-hidden"
-    //   data-slide={slide}
-    //   onMouseEnter={undefined}
-    // >
-      <main className="relative min-h-screen overflow-hidden" data-slide={slide}>
-
+    <main className="relative min-h-screen overflow-hidden" data-slide={slide}>
       {slide > 0 && <BackgroundPhotos images={[memory1, memory2, memory3,memory4,memory5,memory6,memory7,memory8]} active={slide} />}
       <PolaroidField items={slide === 0 ? [] : FLOATING} />
       <Confetti />
 
-            <AudioButton playing={music.playing} onToggle={music.toggle} />
-
+      <AudioButton playing={music.playing} onToggle={music.toggle} />
 
       {/* progress dots */}
       <nav
@@ -220,8 +168,7 @@ function Tribute() {
             type="button"
             aria-label={`Go to slide ${i + 1}`}
             aria-current={i === slide}
-            // onClick={() => setSlide(i)}
-              onClick={() => jump(i)}
+            onClick={() => jump(i)}
             className={
               i === slide
                 ? "h-4 w-4 rounded-full border border-accent-pink bg-accent-pink shadow-[0_0_18px_var(--accent-pink)] transition-all"
@@ -255,21 +202,15 @@ function Tribute() {
 
       <section
         key={slide}
-        //  onMouseEnter={() => setHovering(true)}
-        // onMouseLeave={() => setHovering(false)}
-  onMouseOver={(e) =>
+        onMouseOver={(e) =>
           setHovering(
             !!(e.target as HTMLElement).closest(".glass-card, .glass-chip, .polaroid, figure"),
           )
         }
         onMouseOut={() => setHovering(false)}
-
-
         className="animate-rise relative z-20 grid min-h-screen place-items-center px-4 py-24 sm:px-16"
       >
-        {/* {slide === 0 && <SlideGift onOpen={() => setSlide(1)} />}
-        {slide === 1 && <SlideWelcome onContinue={() => setSlide(2)} />} */}
-         {slide === 0 && <SlideGift onOpen={open} />}
+        {slide === 0 && <SlideGift onOpen={open} />}
         {slide === 1 && <SlideWelcome onContinue={() => jump(2)} />}
         {slide === 2 && <SlideWish />}
         {slide === 3 && (
@@ -306,33 +247,14 @@ function Tribute() {
 function SlideGift({ onOpen }: { onOpen: () => void }) {
   return (
     <button type="button" onClick={onOpen} className="group text-center">
-       <div
-        
-      >
-        
-        {/* <span
-          className="absolute inset-y-0 left-1/2 w-[9%] -translate-x-1/2"
-          style={{ background: "linear-gradient(90deg, oklch(0.55 0.2 351), oklch(0.75 0.24 351), oklch(0.55 0.2 351))" }}
-        /> */}
+      <div>
         <img src={giftbox} alt="dfghj" className="gift-box relative mx-auto aspect-[4/3] w-[min(88vw,560px)] rounded-lg"
         style={{
           background:
             "radial-gradient(120% 120% at 30% 20%, oklch(0.28 0.09 350 / 90%), oklch(0.18 0.03 40)), repeating-conic-gradient(oklch(1 0 0 / 6%) 0% 25%, transparent 0% 50%) 0 0 / 22px 22px",
           boxShadow: "var(--glow-pink), var(--shadow-glass)",
         }} />
-        {/* <span
-          className="absolute inset-x-0 top-1/2 h-[13%] -translate-y-1/2"
-          style={{ background: "linear-gradient(180deg, oklch(0.72 0.23 351), oklch(0.52 0.2 351))" }}
-        /> */}
-       <span className="absolute left-1/2 top-1/2 grid h-[18%] w-[38%] -translate-x-1/2 -translate-y-1/2 place-items-center">
-          {/* <span
-            className="block h-full w-full rounded-full"
-            style={{
-              background: "radial-gradient(60% 90% at 50% 40%, oklch(0.82 0.22 351), oklch(0.55 0.2 351))",
-              clipPath:
-                "polygon(0% 20%, 22% 0%, 40% 42%, 60% 42%, 78% 0%, 100% 20%, 100% 80%, 78% 100%, 60% 58%, 40% 58%, 22% 100%, 0% 80%)",
-            }}
-          /> */}
+        <span className="absolute left-1/2 top-1/2 grid h-[18%] w-[38%] -translate-x-1/2 -translate-y-1/2 place-items-center">
         </span>
       </div> 
 
