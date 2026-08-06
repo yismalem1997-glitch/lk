@@ -105,10 +105,10 @@ const PHOTOS = [
  
 
 const FLOATING = [
-  { src: photo2, caption: "hahahah", style: { top: "8%", left: "4%", ["--tilt" as string]: "rotate(-8deg)", transform: "rotate(-8deg)" } },
-  { src: photo16, caption: "huhuhuh", style: { top: "12%", right: "5%", ["--tilt" as string]: "rotate(7deg)", transform: "rotate(7deg)", animationDelay: "1.4s" } },
-  { src: photo7, caption: "hihihih", style: { bottom: "8%", left: "6%", ["--tilt" as string]: "rotate(6deg)", transform: "rotate(6deg)", animationDelay: "2.6s" } },
-  { src: photo6, caption: "hahahahah", style: { bottom: "10%", right: "4%", ["--tilt" as string]: "rotate(-6deg)", transform: "rotate(-6deg)", animationDelay: "0.7s" } },
+  { src: photo2, caption: " ", style: { top: "8%", left: "4%", ["--tilt" as string]: "rotate(-8deg)", transform: "rotate(-8deg)" } },
+  { src: photo16, caption: " ", style: { top: "12%", right: "5%", ["--tilt" as string]: "rotate(7deg)", transform: "rotate(7deg)", animationDelay: "1.4s" } },
+  { src: photo7, caption: " ", style: { bottom: "8%", left: "6%", ["--tilt" as string]: "rotate(6deg)", transform: "rotate(6deg)", animationDelay: "2.6s" } },
+  { src: photo6, caption: " ", style: { bottom: "10%", right: "4%", ["--tilt" as string]: "rotate(-6deg)", transform: "rotate(-6deg)", animationDelay: "0.7s" } },
 ];
 
 const TOTAL = 9;
