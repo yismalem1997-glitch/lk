@@ -69,38 +69,38 @@ export const Route = createFileRoute("/")({
 
 const RECIPIENT = "ድንክ";
 const SENDER = "ይስሙአለም";
-const SPECIAL_DATE = "August 11, 2026";
+const SPECIAL_DATE = "9/6/2026";
 
 const PHOTOS = [
-  { src: photo1, caption: "golden hour" },
+  { src: photo1, caption: "" },
   // { src: photo20, caption: "golden hour" },
   // { src: photo21, caption: "golden hour" },
   // { src: photo19, caption: "golden hour" },
-  { src: photo17, caption: "golden hour" },
-  { src: photo18, caption: "golden hour" },
-  { src: photo16, caption: "golden hour" },
+  { src: photo17, caption: "" },
+  { src: photo18, caption: "" },
+  { src: photo16, caption: "" },
   // { src: photo15, caption: "golden hour" },
-  { src: photo14, caption: "golden hour" },
-  { src: photo13, caption: "golden hour" },
-  { src: photo12, caption: "golden hour" },
+  { src: photo14, caption: "" },
+  { src: photo13, caption: "" },
+  { src: photo12, caption: "" },
   // { src: photo11, caption: "golden hour" },
-  { src: photo10, caption: "golden hour" },
-  { src: photo9, caption: "golden hour" },
-  { src: photo8, caption: "golden hour" },
-  { src: photo7, caption: "golden hour" },
-  { src: photo6, caption: "golden hour" },
+  { src: photo10, caption: "" },
+  { src: photo9, caption: "" },
+  { src: photo8, caption: "" },
+  { src: photo7, caption: "" },
+  { src: photo6, caption: "" },
   // { src: photo5, caption: "golden hour" },
-  { src: photo4, caption: "golden hour" },
+  { src: photo4, caption: "" },
   // { src: photo3, caption: "golden hour" },
-  { src: photo2, caption: "sparkler night" },
-  { src: memory8, caption: "cake o'clock" },
-  { src: memory7, caption: "that laugh" },
-  { src: memory6, caption: "late nights" },
-  { src: memory5, caption: "make a wish" },
-  { src: memory4, caption: "park days" },
-  { src: memory3, caption: "little fires" },
-  { src: memory2, caption: "one more slice" },
-  { src: memory1, caption: "us, again" },
+  { src: photo2, caption: "" },
+  { src: memory8, caption: "" },
+  { src: memory7, caption: "" },
+  { src: memory6, caption: "" },
+  { src: memory5, caption: "" },
+  { src: memory4, caption: "" },
+  { src: memory3, caption: "" },
+  { src: memory2, caption: "" },
+  { src: memory1, caption: "" },
 ];
  
 
@@ -190,24 +190,23 @@ function Tribute() {
         {slide === 2 && <SlideWish />}
         {slide === 3 && (
           <GlassCard icon={<Heart className="h-5 w-5" />} title="What I love most about you">
-            The way you make an ordinary Tuesday feel like a small festival — your laugh arrives
-            before the joke lands, and somehow everyone in the room feels invited.
+          እኔ ከንቺን የምወድልሽ በመጀመሪያ ቁመትሽ እና ደግሞ  ያንን  ድድብናሽን ነው  .
           </GlassCard>
         )}
         {slide === 4 && (
           <GlassCard icon={<BookOpen className="h-5 w-5" />} title="Our Story">
-            <ol className="space-y-3 not-italic">
+            {/* <ol className="space-y-3 not-italic">
               <li>a &rarr; a hallway, a borrowed pen, a conversation that ran too long.</li>
               <li>b &rarr; the first trip, the wrong bus, the best afternoon.</li>
               <li>c &rarr; every year since, quietly becoming the good part of the story.</li>
-            </ol>
+            </ol> */}
+            ሰው እንዴት 15 አመት ጭንቅላት ከሌለው ሰው ጋር ይኖራል ግን እግዚአብሔር ፈቅዶ ኖረናል ብዙ ክፍ እና ደግ ከናቶችህን አሳልፈናል ክዚ ቡኋላ ለሚመጣው እድሜ መድኅኒአለም ይርዳሽ
           </GlassCard>
         )}
         {slide === 5 && (
           <GlassCard icon={<SparkleIcon className="h-5 w-5" />} title="Shared Dreams">
-            A small kitchen with too many plants. A passport with tired pages. Mornings that are
-            never in a hurry. And this — us, still laughing at nothing at all.
-          </GlassCard>
+         በሕይወትህ ዘመን ሁሉ እግዚአብሔር ሰላምን፣ ጤናን ጭንቅላት እና ቁመት ያድልሽ።  ያሰብሽው ሁሉ እንዲሳካልሽ፣ የልብሽ ምኞት በደስታ እንዲሞላ ከልብ እመኛለሁ። 
+           </GlassCard>
         )}
         {slide === 6 && <SlideGallery onOpen={() => setGallery(true)} />}
         {slide === 7 && <SlideMoments index={moment} setIndex={setMoment} />}
@@ -291,8 +290,7 @@ function SlideWish() {
       </div>
       <p className="mt-4 font-serif text-sm italic text-muted-foreground">{SPECIAL_DATE}</p>
       <p className="mt-10 font-serif text-2xl italic leading-relaxed text-foreground sm:text-4xl">
-        “May this year be softer than the last, louder where it counts, and full of the kind of
-        days you'd choose again.”
+        “አንቺ ድንክ አዲሱ ዓመትሽ ቁመትሽ ከሰው እኩል የምትሆኚበት፣ ያሰብሽው ሁሉ የሚሳካበት፣ ሰው የምትሆኚበት ዓመት እንዲሆንልሽ እግዚአብሔር ይርዳሽ፤ ደግሞ ዕድሜ አትደብቂ”
       </p>
       <p className="mt-10 font-serif italic text-muted-foreground">— {SENDER}</p>
     </div>
