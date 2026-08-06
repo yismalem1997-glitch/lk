@@ -205,7 +205,7 @@ function Tribute() {
         )}
         {slide === 5 && (
           <GlassCard icon={<SparkleIcon className="h-5 w-5" />} title="Shared Dreams">
-         በሕይወትህ ዘመን ሁሉ እግዚአብሔር ሰላምን፣ ጤናን ጭንቅላት እና ቁመት ያድልሽ።  ያሰብሽው ሁሉ እንዲሳካልሽ፣ የልብሽ ምኞት በደስታ እንዲሞላ ከልብ እመኛለሁ። 
+         በሕይወትህ ዘመን ሁሉ እግዚአብሔር ሰላም ፣ ጤና ፣ ጭንቅላት እና ቁመት ያድልሽ።  ያሰብሽው ሁሉ እንዲሳካልሽ፣ የልብሽ ምኞት በደስታ እንዲሞላ ከልብ እመኛለሁ። 
            </GlassCard>
         )}
         {slide === 6 && <SlideGallery onOpen={() => setGallery(true)} />}
