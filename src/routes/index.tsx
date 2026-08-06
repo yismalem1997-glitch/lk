@@ -25,25 +25,25 @@ import memory7 from "@/assets/Screenshot 2026-08-04 054045.png";
 import memory8 from "@/assets/Screenshot 2026-08-04 054120.png";
 import photo1 from "@/assets/photo_1_2026-08-05_22-41-36.jpg";
 import photo2 from "@/assets/photo_1_2026-08-05_22-42-32.jpg";
-import photo3 from "@/assets/photo_2_2026-08-05_22-41-36.jpg";
+// import photo3 from "@/assets/photo_2_2026-08-05_22-41-36.jpg";
 import photo4 from "@/assets/photo_2_2026-08-05_22-42-32.jpg";
-import photo5 from "@/assets/photo_3_2026-08-05_22-41-36.jpg";
+// import photo5 from "@/assets/photo_3_2026-08-05_22-41-36.jpg";
 import photo6 from "@/assets/photo_3_2026-08-05_22-42-32.jpg";
 import photo7 from "@/assets/photo_4_2026-08-05_22-41-36.jpg";
 import photo8 from "@/assets/photo_4_2026-08-05_22-42-32.jpg";
 import photo9 from "@/assets/photo_5_2026-08-05_22-41-37.jpg";
 import photo10 from "@/assets/photo_5_2026-08-05_22-42-32.jpg";
-import photo11 from "@/assets/photo_6_2026-08-05_22-41-37.jpg";
+// import photo11 from "@/assets/photo_6/_2026-08-05_22-41-37.jpg";
 import photo12 from "@/assets/photo_6_2026-08-05_22-42-32.jpg";
 import photo13 from "@/assets/photo_7_2026-08-05_22-41-37.jpg";
 import photo14 from "@/assets/photo_7_2026-08-05_22-42-32.jpg";
-import photo15 from "@/assets/photo_8_2026-08-05_22-41-37.jpg";
+// import photo15 from "@/assets/photo_8_2026-08-05_22-41-37.jpg";
 import photo16 from "@/assets/photo_8_2026-08-05_22-42-32.jpg";
 import photo17 from "@/assets/photo_9_2026-08-05_22-41-37.jpg";
 import photo18 from "@/assets/photo_9_2026-08-05_22-42-32.jpg";
-import photo19 from "@/assets/photo_10_2026-08-05_22-41-37.jpg";
-import photo20 from "@/assets/photo_10_2026-08-05_22-42-32.jpg";
-import photo21 from "@/assets/photo_11_2026-08-05_22-41-37.jpg";
+// import photo19 from "@/assets/photo_10_2026-08-05_22-41-37.jpg";
+// import photo20 from "@/assets/photo_10_2026-08-05_22-42-32.jpg";
+// import photo21 from "@/assets/photo_11_2026-08-05_22-41-37.jpg";
 import giftbox from "@/assets/images.jpg";
 
 export const Route = createFileRoute("/")({
@@ -73,23 +73,23 @@ const SPECIAL_DATE = "August 11, 2026";
 
 const PHOTOS = [
   { src: photo1, caption: "golden hour" },
-  { src: photo20, caption: "golden hour" },
-  { src: photo21, caption: "golden hour" },
-  { src: photo19, caption: "golden hour" },
+  // { src: photo20, caption: "golden hour" },
+  // { src: photo21, caption: "golden hour" },
+  // { src: photo19, caption: "golden hour" },
   { src: photo17, caption: "golden hour" },
   { src: photo18, caption: "golden hour" },
   { src: photo16, caption: "golden hour" },
-  { src: photo15, caption: "golden hour" },
+  // { src: photo15, caption: "golden hour" },
   { src: photo14, caption: "golden hour" },
   { src: photo13, caption: "golden hour" },
   { src: photo12, caption: "golden hour" },
-  { src: photo11, caption: "golden hour" },
+  // { src: photo11, caption: "golden hour" },
   { src: photo10, caption: "golden hour" },
   { src: photo9, caption: "golden hour" },
   { src: photo8, caption: "golden hour" },
   { src: photo7, caption: "golden hour" },
   { src: photo6, caption: "golden hour" },
-  { src: photo5, caption: "golden hour" },
+  // { src: photo5, caption: "golden hour" },
   { src: photo4, caption: "golden hour" },
   { src: photo3, caption: "golden hour" },
   { src: photo2, caption: "sparkler night" },
@@ -98,7 +98,7 @@ const PHOTOS = [
   { src: memory6, caption: "late nights" },
   { src: memory5, caption: "make a wish" },
   { src: memory4, caption: "park days" },
-  { src: memory3, caption: "little fires" },
+  // { src: memory3, caption: "little fires" },
   { src: memory2, caption: "one more slice" },
   { src: memory1, caption: "us, again" },
 ];
@@ -133,7 +133,7 @@ function Tribute() {
 
   return (
     <main className="relative min-h-screen overflow-hidden" data-slide={slide}>
-      {slide > 0 && <BackgroundPhotos images={[photo1, photo2,photo3,photo4,photo5,photo6,photo7,photo8,photo10,]} active={slide} />}
+      {slide > 0 && <BackgroundPhotos images={[photo1, photo2,photo9,photo4,photo12,photo6,photo7,photo8,photo10,]} active={slide} />}
       <PolaroidField items={slide === 0 ? [] : FLOATING} />
       <Confetti />
 
