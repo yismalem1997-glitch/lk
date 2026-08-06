@@ -200,7 +200,7 @@ function Tribute() {
               <li>b &rarr; the first trip, the wrong bus, the best afternoon.</li>
               <li>c &rarr; every year since, quietly becoming the good part of the story.</li>
             </ol> */}
-            ሰው እንዴት 15 አመት ጭንቅላት ከሌለው ሰው ጋር ይኖራል ግን እግዚአብሔር ፈቅዶ ኖረናል ብዙ ክፍ እና ደግ ከናቶችህን አሳልፈናል ክዚ ቡኋላ ለሚመጣው እድሜ መድኅኒአለም ይርዳሽ
+            ሰው እንዴት 15 አመት ጭንቅላት ከሌለው ሰው ጋር ይኖራል ግን እግዚአብሔር ፈቅዶ ኖረናል ብዙ ክፍ እና ደግ ቀናቶችን አሳልፈናል ቀሪውን እድሜሽን መድኅኒአለም ይርዳሽ
           </GlassCard>
         )}
         {slide === 5 && (
