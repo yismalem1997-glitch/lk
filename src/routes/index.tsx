@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useCallback, useEffect, useState } from "react";
-// import { AudioButton } from "@/components/tribute/AudioButton";
+import { AudioButton } from "@/components/tribute/AudioButton";
 import { useAmbientMusic } from "@/components/tribute/useAmbientMusic";
 import {
   ArrowRight,
@@ -112,37 +112,9 @@ const RESUME_MS = 10000;
   const music = useAmbientMusic();
 
 
-  // const go = useCallback((n: number) => {
-  //   setSlide((s) => Math.min(TOTAL - 1, Math.max(0, s + n)));
-  // }, []);
-
-  // useEffect(() => {
-  //   const onKey = (e: KeyboardEvent) => {
-  //     if (e.key === "ArrowRight") go(1);
-  //     if (e.key === "ArrowLeft") go(-1);
-  //   };
-  //   window.addEventListener("keydown", onKey);
-  //   return () => window.removeEventListener("keydown", onKey);
-  // }, [go]);
-
-
-//   const nudge = useCallback(() => setManualAt(Date.now()), []);
-
-  const go = useCallback(
-    (n: number) => {
-      nudge();
-      setSlide((s) => Math.min(TOTAL - 1, Math.max(0, s + n)));
-    },
-    [],
-  );
-
-  // const jump = useCallback(
-  //   (i: number) => {
-  //     nudge();
-  //     setSlide(i);
-  //   },
-  //   [],
-  // );
+  const go = useCallback((n: number) => {
+    setSlide((s) => Math.min(TOTAL - 1, Math.max(0, s + n)));
+  }, []);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -153,21 +125,49 @@ const RESUME_MS = 10000;
     return () => window.removeEventListener("keydown", onKey);
   }, [go]);
 
-  // Start the music once the gift is opened (first user gesture).
-  const open = useCallback(() => {
-    music.play();
-    setSlide(1);
-  }, [music]);
 
-  // Auto-advance every 5s, paused on slide 1, on hover, while the gallery
-  // modal is open, and briefly after any manual navigation.
-  useEffect(() => {
-    if (slide === 0 || slide >= TOTAL - 1 || hovering || gallery) return;
-    const sinceManual = Date.now() - manualAt;
-    const delay = sinceManual < RESUME_MS ? RESUME_MS - sinceManual : AUTO_MS;
-    const t = window.setTimeout(() => setSlide((s) => Math.min(TOTAL - 1, s + 1)), delay);
-    return () => window.clearTimeout(t);
-  }, [slide, hovering, gallery, manualAt]);
+//   const nudge = useCallback(() => setManualAt(Date.now()), []);
+
+//   const go = useCallback(
+//     (n: number) => {
+//       nudge();
+//       setSlide((s) => Math.min(TOTAL - 1, Math.max(0, s + n)));
+//     },
+//     [],
+//   );
+
+//   const jump = useCallback(
+//     (i: number) => {
+//       nudge();
+//       setSlide(i);
+//     },
+//     [],
+//   );
+
+//   useEffect(() => {
+//     const onKey = (e: KeyboardEvent) => {
+//       if (e.key === "ArrowRight") go(1);
+//       if (e.key === "ArrowLeft") go(-1);
+//     };
+//     window.addEventListener("keydown", onKey);
+//     return () => window.removeEventListener("keydown", onKey);
+//   }, [go]);
+
+//   // Start the music once the gift is opened (first user gesture).
+//   const open = useCallback(() => {
+//     music.play();
+//     setSlide(1);
+//   }, [music]);
+
+//   // Auto-advance every 5s, paused on slide 1, on hover, while the gallery
+//   // modal is open, and briefly after any manual navigation.
+//   useEffect(() => {
+//     if (slide === 0 || slide >= TOTAL - 1 || hovering || gallery) return;
+//     const sinceManual = Date.now() - manualAt;
+//     const delay = sinceManual < RESUME_MS ? RESUME_MS - sinceManual : AUTO_MS;
+//     const t = window.setTimeout(() => setSlide((s) => Math.min(TOTAL - 1, s + 1)), delay);
+//     return () => window.clearTimeout(t);
+//   }, [slide, hovering, gallery, manualAt]);
 
   return (
     <main className="relative min-h-screen overflow-hidden" data-slide={slide}>
