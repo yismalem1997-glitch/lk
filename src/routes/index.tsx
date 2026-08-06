@@ -72,8 +72,6 @@ const SENDER = "ይስሙአለም";
 const SPECIAL_DATE = "August 11, 2026";
 
 const PHOTOS = [
-
-
   { src: photo1, caption: "golden hour" },
   { src: photo20, caption: "golden hour" },
   { src: photo21, caption: "golden hour" },
