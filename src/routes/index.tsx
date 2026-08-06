@@ -72,23 +72,45 @@ const SENDER = "ይስሙአለም";
 const SPECIAL_DATE = "August 11, 2026";
 
 const PHOTOS = [
+
+
   { src: photo1, caption: "golden hour" },
-  { src: photo10, caption: "sparkler night" },
-  { src: photo11, caption: "cake o'clock" },
-  { src: photo12, caption: "that laugh" },
-  { src: photo13, caption: "late nights" },
-  { src: photo14, caption: "make a wish" },
-  { src: memory7, caption: "park days" },
-  { src: memory8, caption: "little fires" },
-  { src: memory4, caption: "one more slice" },
-  { src: memory5, caption: "us, again" },
+  { src: photo20, caption: "golden hour" },
+  { src: photo21, caption: "golden hour" },
+  { src: photo19, caption: "golden hour" },
+  { src: photo17, caption: "golden hour" },
+  { src: photo18, caption: "golden hour" },
+  { src: photo16, caption: "golden hour" },
+  { src: photo15, caption: "golden hour" },
+  { src: photo14, caption: "golden hour" },
+  { src: photo13, caption: "golden hour" },
+  { src: photo12, caption: "golden hour" },
+  { src: photo11, caption: "golden hour" },
+  { src: photo10, caption: "golden hour" },
+  { src: photo9, caption: "golden hour" },
+  { src: photo8, caption: "golden hour" },
+  { src: photo7, caption: "golden hour" },
+  { src: photo6, caption: "golden hour" },
+  { src: photo5, caption: "golden hour" },
+  { src: photo4, caption: "golden hour" },
+  { src: photo3, caption: "golden hour" },
+  { src: photo2, caption: "sparkler night" },
+  { src: memory8, caption: "cake o'clock" },
+  { src: memory7, caption: "that laugh" },
+  { src: memory6, caption: "late nights" },
+  { src: memory5, caption: "make a wish" },
+  { src: memory4, caption: "park days" },
+  { src: memory3, caption: "little fires" },
+  { src: memory2, caption: "one more slice" },
+  { src: memory1, caption: "us, again" },
 ];
+ 
 
 const FLOATING = [
   { src: photo2, caption: "hahahah", style: { top: "8%", left: "4%", ["--tilt" as string]: "rotate(-8deg)", transform: "rotate(-8deg)" } },
   { src: photo16, caption: "huhuhuh", style: { top: "12%", right: "5%", ["--tilt" as string]: "rotate(7deg)", transform: "rotate(7deg)", animationDelay: "1.4s" } },
   { src: photo7, caption: "hihihih", style: { bottom: "8%", left: "6%", ["--tilt" as string]: "rotate(6deg)", transform: "rotate(6deg)", animationDelay: "2.6s" } },
-  { src: photo7, caption: "hahahahah", style: { bottom: "10%", right: "4%", ["--tilt" as string]: "rotate(-6deg)", transform: "rotate(-6deg)", animationDelay: "0.7s" } },
+  { src: photo6, caption: "hahahahah", style: { bottom: "10%", right: "4%", ["--tilt" as string]: "rotate(-6deg)", transform: "rotate(-6deg)", animationDelay: "0.7s" } },
 ];
 
 const TOTAL = 9;
@@ -113,7 +135,7 @@ function Tribute() {
 
   return (
     <main className="relative min-h-screen overflow-hidden" data-slide={slide}>
-      {slide > 0 && <BackgroundPhotos images={[memory1, memory2, memory3,memory4,memory5,memory6,memory7,memory8]} active={slide} />}
+      {slide > 0 && <BackgroundPhotos images={[photo1, photo2,photo3,photo4,photo5,photo6,photo7,photo8,photo10,]} active={slide} />}
       <PolaroidField items={slide === 0 ? [] : FLOATING} />
       <Confetti />
 
