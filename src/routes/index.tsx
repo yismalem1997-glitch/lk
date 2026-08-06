@@ -23,8 +23,28 @@ import memory5 from "@/assets/Screenshot 2026-08-04 053224.png";
 import memory6 from "@/assets/Screenshot 2026-08-04 053646.png";
 import memory7 from "@/assets/Screenshot 2026-08-04 054045.png";
 import memory8 from "@/assets/Screenshot 2026-08-04 054120.png";
+import photo1 from "@/assets/photo_1_2026-08-05_22-41-36.jpg";
+import photo2 from "@/assets/photo_1_2026-08-05_22-42-32.jpg";
+import photo3 from "@/assets/photo_2_2026-08-05_22-41-36.jpg";
+import photo4 from "@/assets/photo_2_2026-08-05_22-42-32.jpg";
+import photo5 from "@/assets/photo_3_2026-08-05_22-41-36.jpg";
+import photo6 from "@/assets/photo_3_2026-08-05_22-42-32.jpg";
+import photo7 from "@/assets/photo_4_2026-08-05_22-41-36.jpg";
+import photo8 from "@/assets/photo_4_2026-08-05_22-42-32.jpg";
+import photo9 from "@/assets/photo_5_2026-08-05_22-41-37.jpg";
+import photo10 from "@/assets/photo_5_2026-08-05_22-42-32.jpg";
+import photo11 from "@/assets/photo_6_2026-08-05_22-41-37.jpg";
+import photo12 from "@/assets/photo_6_2026-08-05_22-42-32.jpg";
+import photo13 from "@/assets/photo_7_2026-08-05_22-41-37.jpg";
+import photo14 from "@/assets/photo_7_2026-08-05_22-42-32.jpg";
+import photo15 from "@/assets/photo_8_2026-08-05_22-41-37.jpg";
+import photo16 from "@/assets/photo_8_2026-08-05_22-42-32.jpg";
+import photo17 from "@/assets/photo_9_2026-08-05_22-41-37.jpg";
+import photo18 from "@/assets/photo_9_2026-08-05_22-42-32.jpg";
+import photo19 from "@/assets/photo_10_2026-08-05_22-41-37.jpg";
+import photo20 from "@/assets/photo_10_2026-08-05_22-42-32.jpg";
+import photo21 from "@/assets/photo_11_2026-08-05_22-41-37.jpg";
 import giftbox from "@/assets/images.jpg";
-
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -33,9 +53,9 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "An interactive birthday tribute for samri: a gift box to unwrap, fireworks, memories, polaroids and a closing chapter dated August 11, 2026.",
+          "An interactive birthday tribute for ድንክ: a gift box to unwrap, fireworks, memories, polaroids and a closing chapter dated August 11, 2026.",
       },
-      { property: "og:title", content: "Happy Birthday samri — A Tribute from kirubel" },
+      { property: "og:title", content: "Happy Birthday ድንክ — A Tribute from yismualem" },
       {
         property: "og:description",
         content: "Unwrap the gift, read the wishes and wander through our memories.",
@@ -47,17 +67,17 @@ export const Route = createFileRoute("/")({
   component: Tribute,
 });
 
-const RECIPIENT = "arsema";
-const SENDER = "ysmualem";
+const RECIPIENT = "ድንክ";
+const SENDER = "ይስሙአለም";
 const SPECIAL_DATE = "August 11, 2026";
 
 const PHOTOS = [
-  { src: memory1, caption: "golden hour" },
-  { src: memory2, caption: "sparkler night" },
-  { src: memory3, caption: "cake o'clock" },
-  { src: memory4, caption: "that laugh" },
-  { src: memory5, caption: "late nights" },
-  { src: memory6, caption: "make a wish" },
+  { src: photo1, caption: "golden hour" },
+  { src: photo10, caption: "sparkler night" },
+  { src: photo11, caption: "cake o'clock" },
+  { src: photo12, caption: "that laugh" },
+  { src: photo13, caption: "late nights" },
+  { src: photo14, caption: "make a wish" },
   { src: memory7, caption: "park days" },
   { src: memory8, caption: "little fires" },
   { src: memory4, caption: "one more slice" },
@@ -65,10 +85,10 @@ const PHOTOS = [
 ];
 
 const FLOATING = [
-  { src: memory1, caption: "hahahah", style: { top: "8%", left: "4%", ["--tilt" as string]: "rotate(-8deg)", transform: "rotate(-8deg)" } },
-  { src: memory2, caption: "huhuhuh", style: { top: "12%", right: "5%", ["--tilt" as string]: "rotate(7deg)", transform: "rotate(7deg)", animationDelay: "1.4s" } },
-  { src: memory3, caption: "hihihih", style: { bottom: "8%", left: "6%", ["--tilt" as string]: "rotate(6deg)", transform: "rotate(6deg)", animationDelay: "2.6s" } },
-  { src: memory4, caption: "hahahahah", style: { bottom: "10%", right: "4%", ["--tilt" as string]: "rotate(-6deg)", transform: "rotate(-6deg)", animationDelay: "0.7s" } },
+  { src: photo2, caption: "hahahah", style: { top: "8%", left: "4%", ["--tilt" as string]: "rotate(-8deg)", transform: "rotate(-8deg)" } },
+  { src: photo16, caption: "huhuhuh", style: { top: "12%", right: "5%", ["--tilt" as string]: "rotate(7deg)", transform: "rotate(7deg)", animationDelay: "1.4s" } },
+  { src: photo7, caption: "hihihih", style: { bottom: "8%", left: "6%", ["--tilt" as string]: "rotate(6deg)", transform: "rotate(6deg)", animationDelay: "2.6s" } },
+  { src: photo7, caption: "hahahahah", style: { bottom: "10%", right: "4%", ["--tilt" as string]: "rotate(-6deg)", transform: "rotate(-6deg)", animationDelay: "0.7s" } },
 ];
 
 const TOTAL = 9;
